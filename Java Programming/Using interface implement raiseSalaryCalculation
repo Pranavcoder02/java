@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+interface Employee {
+    void setName(String name);
+    void setSalary(double salary);
+    String getName();
+    double getSalary();
+}
+
+class EmployeeImpl implements Employee {
+
+    private String name;
+    private double salary;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+     public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+     public String getName() {
+        // System.out.println(name);
+        return name;
+    }
+
+     public double getSalary() { 
+        return salary;
+    }
+     // salary calculation..
+    public double raiseSalary() {
+        double totalSalary = salary * 12;
+        System.out.println("totalSalary"+ totalSalary );
+        totalSalary = totalSalary + (totalSalary * 0.1);
+        return totalSalary;
+    }
+}
+
+class Calcul {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the first name: ");
+        String firstName = sc.nextLine();
+
+        System.out.println("Enter the monthly salary: ");
+        double monthlySalary = sc.nextDouble();
+
+        //object creation...
+        EmployeeImpl employee = new EmployeeImpl();
+        employee.setName(firstName);
+        employee.setSalary(monthlySalary);
+
+        employee.setName(firstName);
+        employee.setSalary(monthlySalary);
+        
+
+        String Name = employee.getName();
+        double Salary = employee.getSalary();
+        double Salary1 = employee.raiseSalary();
+
+        System.out.println("The name of the employee is: "+ Name);
+        System.out.println("The monthly salary of the employee is : "+ Salary);
+        System.out.println("The raised salary of the employee is : "+ Salary1);
+
+        sc.close();
+       
+    }
+}
