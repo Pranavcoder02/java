@@ -1,0 +1,178 @@
+import java.util.Scanner;
+
+interface Stack {
+    void push(int data);
+    void pop();
+    void display1();
+}
+
+interface Queue {
+    void enqueue(int data);
+    void dequeue();
+    void display2();
+}
+
+class StackQueue1 implements Stack, Queue {
+    int arr[];
+    int maxsize = 5;
+    int top, front, rear;
+
+    // Constructor to initialize variables
+    public StackQueue1() {
+        arr = new int[maxsize];
+        top = -1;
+        front = 0;
+        rear = -1;
+    }
+
+    // Stack methods
+    public void push(int data) {
+        if (top == maxsize - 1) {
+            System.out.println("Stack overflow");
+        } else {
+            arr[++top] = data;
+            System.out.println("Data pushed successfully!");
+        }
+    }
+
+    public void pop() {
+        if (top == -1) {
+            System.out.println("Stack underflow");
+        } else {
+            top--;
+            System.out.println("Data popped successfully!");
+        }
+    }
+
+    public void display1() {
+        if (top == -1) {
+            System.out.println("Stack is empty");
+        } else {
+            for (int i = top; i >= 0; i--) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Queue methods
+    public void enqueue(int data) {
+        if (rear == maxsize - 1) {
+            System.out.println("Queue overflow");
+        } else {
+            arr[++rear] = data;
+            if (front == -1) {
+                front = 0;
+            }
+            System.out.println("Data enqueued successfully!");
+        }
+    }
+
+    public void dequeue() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue underflow");
+        } else {
+            front++;
+            if (front > rear) {
+                front = rear = -1; 
+            }
+            System.out.println("Data dequeued successfully!");
+        }
+    }
+
+    public void display2() {
+        if (front == -1) {
+            System.out.println("Queue is empty");
+        } else {
+            for (int i = front; i <= rear; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class StackQueue {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StackQueue1 sq = new StackQueue1();
+        
+        while (true) {
+            System.out.println("Choose an option:");
+            System.out.println("1. Stack Operations");
+            System.out.println("2. Queue Operations");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1: // Stack operations
+                    System.out.println("Stack Operations:");
+                    System.out.println("1. Push");
+                    System.out.println("2. Pop");
+                    System.out.println("3. Display");
+                    System.out.println("4. Back to main menu");
+                    System.out.print("Enter your choice: ");
+                    int stackChoice = scanner.nextInt();
+                    
+                    switch (stackChoice) {
+                        case 1:
+                            System.out.print("Enter data to push: ");
+                            int pushData = scanner.nextInt();
+                            sq.push(pushData);
+                            break;
+                        case 2:
+                            sq.pop();
+                            break;
+                        case 3:
+                            sq.display1();
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            System.out.println("Invalid choice");
+                            break;
+                    }
+                    break;
+                    
+                case 2: // Queue operations
+                    System.out.println("Queue Operations:");
+                    System.out.println("1. Enqueue");
+                    System.out.println("2. Dequeue");
+                    System.out.println("3. Display");
+                    System.out.println("4. Back to main menu");
+                    System.out.print("Enter your choice: ");
+                    int queueChoice = scanner.nextInt();
+                    
+                    switch (queueChoice) {
+                        case 1:
+                            System.out.print("Enter data to enqueue: ");
+                            int enqueueData = scanner.nextInt();
+                            sq.enqueue(enqueueData);
+                            break;
+                        case 2:
+                            sq.dequeue();
+                            break;
+                        case 3:
+                            sq.display2();
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            System.out.println("Invalid choice");
+                            break;
+                    }
+                    break;
+                    
+                case 3:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    return; // Exit the program
+                
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
+    }
+}
