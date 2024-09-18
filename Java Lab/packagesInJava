@@ -1,0 +1,156 @@
+//Trignomeric packages
+public class Trig {
+    private double angle;
+
+    public Trig(double angle) {
+        this.angle = Math.toRadians(angle); // Convert degrees to radians
+    }
+
+    public double getSine() {
+        return Math.sin(angle);
+    }
+
+    public double getCosine() {
+        return Math.cos(angle);
+    }
+
+    public double getTangent() {
+        return Math.tan(angle);
+    }
+
+    public double getSecant() {
+        return 1 / Math.cos(angle);
+    }
+
+    public double getCosecant() {
+        return 1 / Math.sin(angle);
+    }
+
+    public double getCotangent() {
+        return 1 / Math.tan(angle);
+    }
+}
+
+// Arithmetic packages
+
+
+public class Arithmetic {
+
+    public float add(float a, float b) {
+        return a + b;
+    }
+
+    public float subtract(float a, float b) {
+        return a - b;
+    }
+
+    public float multiply(float a, float b) {
+        return a * b;
+    }
+
+    public float divide(float a, float b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+    }
+}
+
+// Statistical packages
+
+
+public class Stat {
+
+    public int min(int[] arr) {
+        int minVal = arr[0];
+        for (int num : arr) {
+            if (num < minVal) {
+                minVal = num;
+            }
+        }
+        return minVal;
+    }
+
+    public int max(int[] arr) {
+        int maxVal = arr[0];
+        for (int num : arr) {
+            if (num > maxVal) {
+                maxVal = num;
+            }
+        }
+        return maxVal;
+    }
+
+    public int count(int[] arr) {
+        return arr.length;
+    }
+
+    public int sum(int[] arr) {
+        int sumVal = 0;
+        for (int num : arr) {
+            sumVal += num;
+        }
+        return sumVal;
+    }
+
+    public double average(int[] arr) {
+        return sum(arr) / (double) count(arr);
+    }
+}
+
+// NOTE :- All packages must in one folder where the main code of the package is present
+
+// Main Code
+
+import java.util.Scanner;
+public class PackDemo {
+    public static void main(String[] args) {
+        // Trigonometric operations
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter Degrees :");
+        int a=sc.nextInt();
+        if(a<0 && a>360)
+        {
+            System.out.println("\nInvalid Angle.");
+            return;
+        }
+        Trig trig = new Trig(a); 
+        System.out.println("\nSine: " + trig.getSine());
+        System.out.println("Cosine: " + trig.getCosine());
+        System.out.println("Tangent: " + trig.getTangent());
+        System.out.println("Secant: " + trig.getSecant());
+        System.out.println("Cosecant: " + trig.getCosecant());
+        System.out.println("Cotangent: " + trig.getCotangent());
+
+        // Arithmetic operations
+        System.out.print("Enter 1st number : ");
+        int b=sc.nextInt();
+        System.out.print("\nEnter 2nd number : ");
+        int c=sc.nextInt();
+        Arithmetic arithmetic = new Arithmetic();
+        System.out.println("\nAddition: " + arithmetic.add(b,c));
+        System.out.println("Subtraction: " + arithmetic.subtract(b,c));
+        System.out.println("Multiplication: " + arithmetic.multiply(b,c));
+        System.out.println("Division: " + arithmetic.divide(b,c));
+
+        // Statistical operations
+        System.out.print("Enter Array Size : ");
+        int d=sc.nextInt();
+        int[] numbers = new int[d];
+        System.out.print("\nEnter Array : ");
+        for(int i=0;i<d;i++)
+        {
+            numbers[i]=sc.nextInt();
+        }
+        Stat stat = new Stat();
+        System.out.println("Minimum: " + stat.min(numbers));
+        System.out.println("Maximum: " + stat.max(numbers));
+        System.out.println("Count: " + stat.count(numbers));
+        System.out.println("Sum: " + stat.sum(numbers));
+        System.out.println("Average: " + stat.average(numbers));
+
+
+        sc.close();
+    }
+}
