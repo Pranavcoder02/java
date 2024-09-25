@@ -1,0 +1,51 @@
+
+import javax.swing.*;
+class SwingApp{
+    SwingApp(){
+
+        JFrame f = new JFrame();
+
+        JLabel firstName = new JLabel("First Name");  
+        firstName.setBounds(20, 50, 80, 20);  
+          
+        JLabel lastName = new JLabel("Last Name");  
+        lastName.setBounds(20, 80, 80, 20);  
+          
+        JLabel DateOfBirth = new JLabel("Date of Birth");  
+        DateOfBirth.setBounds(20, 110, 80, 20);  
+          
+        JTextField firstNameTf = new JTextField();  
+        firstNameTf.setBounds(120, 50, 100, 20);  
+          
+        JTextField lastNameTf = new JTextField();  
+        lastNameTf.setBounds(120, 80, 100, 20);  
+          
+        JTextField DateOfBirthTf = new JTextField();  
+        DateOfBirthTf.setBounds(120, 110, 100, 20);  
+          
+        JButton Submit = new JButton("Submit");  
+        Submit.setBounds(20, 160, 100, 30);  
+          
+        JButton Reset = new JButton("Reset");  
+        Reset.setBounds(120,160,100,30);  
+    
+        f.add(firstName);
+        f.add(lastName);
+        f.add(DateOfBirth);
+        f.add(firstNameTf);
+        f.add(lastNameTf);
+        f.add(DateOfBirthTf);
+        f.add(Submit);
+        f.add(Reset);
+        
+        f.setSize(300,300);  
+        f.setLayout(null);  
+        f.setVisible(true);
+    }
+}
+public class EXPT_12 {
+    public static void main(String[] args) {
+        SwingApp s = new SwingApp();
+        
+    }
+}
