@@ -1,0 +1,48 @@
+import java.awt.*;
+class AwtApp extends Frame{
+
+    AwtApp() {
+
+       Label firstName = new Label("First Name");  
+        firstName.setBounds(20, 50, 80, 20);  
+          
+        Label lastName = new Label("Last Name");  
+        lastName.setBounds(20, 80, 80, 20);  
+          
+        Label DateOfBirth = new Label("Date of Birth");  
+        DateOfBirth.setBounds(20, 110, 80, 20);  
+          
+        TextField firstNameTf = new TextField();  
+        firstNameTf.setBounds(120, 50, 100, 20);  
+          
+        TextField lastNameTf = new TextField();  
+        lastNameTf.setBounds(120, 80, 100, 20);  
+          
+        TextField DateOfBirthTf = new TextField();  
+        DateOfBirthTf.setBounds(120, 110, 100, 20);  
+          
+        Button Submit = new Button("Submit");  
+        Submit.setBounds(20, 160, 100, 30);  
+          
+        Button Reset = new Button("Reset");  
+        Reset.setBounds(120,160,100,30);  
+    
+        add(firstName);
+        add(lastName);
+        add(DateOfBirth);
+        add(firstNameTf);
+        add(lastNameTf);
+        add(DateOfBirthTf);
+        add(Submit);
+        add(Reset);
+        
+        setSize(300,300);  
+        setLayout(null);  
+        setVisible(true);
+    }
+}
+public class EXPT_121_ {
+    public static void main(String[] args) {
+        AwtApp AW = new AwtApp(); 
+    }
+}
