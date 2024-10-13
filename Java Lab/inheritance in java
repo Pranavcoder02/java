@@ -1,0 +1,32 @@
+class shape{
+    public int getArea(int a){
+       
+          return a;
+    }
+}
+
+class rectangle extends shape{
+    public int getArea(int l,int b){
+        return l*b;
+    }
+}
+
+class rectangle1 extends rectangle{
+     int surfaceArea = 0;
+     public int getArea(int l,int h,int w){
+        surfaceArea = 2*((l*h)+(l*w)+(h*w));
+        return surfaceArea;
+
+     }
+}
+public class inheritance5 {
+    public static void main(String[] args) {
+        shape s = new shape();
+        rectangle r1 = new rectangle();
+        rectangle1 r2 = new rectangle1();
+
+        System.out.println("The area of shape is: "+s.getArea(5) );
+        System.out.println("The area of rectangle is: "+ r1.getArea(1,2));
+        System.out.println("The area of rectangle1 is:"+ r2.getArea(1,2,3));
+    }
+}
