@@ -1,16 +1,33 @@
-public class expt9 {
+import java.util.Scanner;
+
+public class pratice4 {
     public static void main(String[] args) {
-        int a =10,b=0,c;
-         System.out.println("Program is started");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the value of a and b: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int sum = a + b;
+        
         try{
-            c = a/b;
-            System.out.println(c);
+          if(sum>1000){
+            System.out.println("Too Long Addition exception.");
+          }
         }
         catch(Exception e){
-            System.out.println(e);
+              System.out.println(e);
         }
-        
-        System.out.println("Program is ended"); 
-        
+        int sub = a - b ;
+        try{
+            if(sub < 0){
+              System.out.println("Too Long Negative exception.");
+            }
+          }
+          catch(Exception e){
+                System.out.println(e);
+          }
+          
+        System.out.println("Program is ended");
+        sc.close();
     }
 }
