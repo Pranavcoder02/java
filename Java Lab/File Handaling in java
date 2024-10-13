@@ -1,0 +1,79 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the file name: ");
+        String fileName = scanner.nextLine();
+
+        while (true) {
+            System.out.println("Choose an operation:");
+            System.out.println("1. Read file");
+            System.out.println("2. Write to file");
+            System.out.println("3. Append to file");
+            System.out.println("4. Exit");
+
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline left-over
+
+            switch (choice) {
+                case 1:
+                    readFile(fileName);
+                    break;
+                case 2:
+                    System.out.print("Enter the content to write: ");
+                    String content = scanner.nextLine();
+                    writeFile(fileName, content);
+                    break;
+                case 3:
+                    System.out.print("Enter the content to append: ");
+                    String appendContent = scanner.nextLine();
+                    appendToFile(fileName, appendContent);
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please choose again.");
+            }
+        }
+    }
+
+   
+    private static void readFile(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+
+  
+    private static void writeFile(String fileName, String content) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+            System.out.println("Content written to file successfully.");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
+    private static void appendToFile(String fileName, String content) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+            writer.write(content);
+            System.out.println("Content appended to file successfully.");
+        } catch (IOException e) {
+            System.out.println("Error appending to file: " + e.getMessage());
+        }
+    }
+}
