@@ -1,0 +1,102 @@
+package Day2;
+
+import java.util.Scanner;
+
+// Q1. Create a class Triangle that has three sides. Implement constructors, getter/setters, accept(),
+// display(), calcPeri(), isValid() method. The method isValid() returns true if triangle is valid. A triangle is
+// valid if sum of any two sides is greater than the third side.
+// Create array of 4 Triangles, accept from user and calculate perimeters of the valid triangles. Hint:
+// Triangle[] arr = new Triangle[4];
+// for(int i=0; i<arr.length; i++) {
+// arr[i] = new Triangle();
+// arr[i].accept();
+// }
+
+class Triangle {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public void setSide1(double side1) {
+        this.side1 = side1;
+    }
+
+    public double getSide1() {
+        return side1;
+    }
+
+    public void setSide2(double side2) {
+        this.side2 = side2;
+    }
+
+    public double getSide2() {
+        return side2;
+    }
+
+    public void setSide3(double side3) {
+        this.side3 = side3;
+    }
+
+    public double getSide3() {
+        return side3;
+    }
+
+    public void Accept() {
+         
+    }
+
+    public void isValid() {
+        if (side1 + side2 > side3 || side1 + side3 > side2 || side2 + side3 > side1){
+            double ch = side1 + side2 + side3;
+            System.out.println("The triangle is valid:");
+            System.out.println("The perimeter of triangle is:" + ch);
+            
+        }else{
+            System.out.println("The triangle is Invalid:");
+            
+        }
+                
+             
+      
+    }
+    public void display(){
+        System.out.println(side1);
+        System.out.println(side2);
+        System.out.println(side3);
+    }
+
+    public void accept(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter side 1");
+        this.side1 = sc.nextDouble();
+
+        System.out.println("Enter side 2");
+        this.side2= sc.nextDouble();
+
+        System.out.println("Enter side 3");
+        this.side3= sc.nextDouble();
+    }
+}
+
+public class Q1 {
+    public static void main(String[] args) {
+        Triangle t = new Triangle();
+        Triangle[] arr = new Triangle[4];
+        t.accept();
+        // System.out.println(t.isValid());
+        // t.display();
+
+
+        for(int i=0;i<arr.length;i++){
+            arr[i] = new Triangle();
+            arr[i].accept();
+
+            if (arr[i].isValid()) {  // Check if the triangle is valid
+                System.out.println("The triangle is valid.");
+                System.out.println("Perimeter: " + arr[i].());
+            } else {
+                System.out.println("The triangle is not valid.");
+            }
+        }
+    }
+}
