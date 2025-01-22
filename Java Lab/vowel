@@ -1,0 +1,25 @@
+package Day3;
+
+//To check whether it is palindrome or not..
+public class Q2 {
+    public static void main(String[] args) {
+        String str = "abccba";
+        // StringBuffer sb = new StringBuffer(str);
+        // StringBuffer reverse = new StringBuffer(sb.reverse());
+        // String Update = reverse.toString();
+        boolean isPalindrome = true;
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome){
+            System.out.println("The given string is palindrome..");
+        }else{
+            System.out.println("The given string is not palindrome..");
+        }
+
+    }
+}
