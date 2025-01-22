@@ -1,0 +1,31 @@
+package Day3;
+
+public class Q1 {
+    
+    public static void main(String[] args) {
+        
+        String[] arr = {};
+
+        for (String string : arr) {
+            if(CheckLastIsVowel(string)){
+                System.out.println("The string is: "+ string);
+            }
+            else{
+                System.out.println("The string is not found: ");
+            }
+        }
+
+
+    }
+
+    public  static boolean CheckLastIsVowel(String str){
+          
+        if(str == null || str.isEmpty()){
+            System.err.println("Not valid..");
+            // return false;
+        }
+         char isLast = str.charAt(str.length()-1);
+
+         return "aeiouAEIOU".indexOf(isLast)!=-1;
+    }
+}
